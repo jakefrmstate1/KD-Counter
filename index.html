@@ -42,6 +42,7 @@
             cursor: pointer;
             color: #282c34;
             transition: background-color 0.3s;
+            pointer-events: auto;
         }
 
         button:hover {
@@ -50,6 +51,19 @@
 
         button:active {
             background-color: #1a81c1;
+        }
+
+        .reset {
+            background-color: #f44336; /* Red color for reset */
+            margin-top: 20px;
+        }
+
+        .reset:hover {
+            background-color: #d32f2f;
+        }
+
+        .reset:active {
+            background-color: #c62828;
         }
     </style>
 </head>
@@ -65,6 +79,10 @@
         </div>
     </div>
 
+    <div class="reset-container" style="text-align: center; margin-top: 20px;">
+        <button class="reset" onclick="resetCounts()">Reset</button>
+    </div>
+
     <script>
         let killCount = 0;
         let deathCount = 0;
@@ -76,6 +94,13 @@
 
         function increaseDeath() {
             deathCount++;
+            document.getElementById('death-count').textContent = deathCount;
+        }
+
+        function resetCounts() {
+            killCount = 0;
+            deathCount = 0;
+            document.getElementById('kill-count').textContent = killCount;
             document.getElementById('death-count').textContent = deathCount;
         }
     </script>
