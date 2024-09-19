@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill/Death Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .counter-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .counter {
+            background-color: #3a3f47;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            margin: 0 0 10px;
+        }
+
+        button {
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #282c34;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+
+        button:active {
+            background-color: #1a81c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <div class="counter">
+            <h2>Kills: <span id="kill-count">0</span></h2>
+            <button class="increase" onclick="increaseKill()">+1 Kill</button>
+        </div>
+        <div class="counter">
+            <h2>Deaths: <span id="death-count">0</span></h2>
+            <button class="increase" onclick="increaseDeath()">+1 Death</button>
+        </div>
+    </div>
+
+    <script>
+        let killCount = 0;
+        let deathCount = 0;
+
+        function increaseKill() {
+            killCount++;
+            document.getElementById('kill-count').textContent = killCount;
+        }
+
+        function increaseDeath() {
+            deathCount++;
+            document.getElementById('death-count').textContent = deathCount;
+        }
+    </script>
+</body>
+</html>
